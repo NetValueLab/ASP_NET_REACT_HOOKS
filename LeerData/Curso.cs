@@ -7,5 +7,6 @@ namespace LeerData
         public string Titulo { get; set; }
         public string Descripicion { get; set; }
         public DateTime FechaPulicacion { get; set; }
+        public Precio PrecioPromocion { get; set; }
     }
 }

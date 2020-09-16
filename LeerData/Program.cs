@@ -9,11 +9,18 @@ namespace LeerData
         {
             using(var db = new AppVentaCursosContext())
             {
-                var cursos = db.Curso.AsNoTracking();
+                var cursos = db.Curso.Include(p => p.PrecioPromocion).AsNoTracking();
+
+                foreach(var x in cursos)
+                {
+                    Console.WriteLine($"Título: {x.Titulo} | Preço: {x.PrecioPromocion.PrecioActual}");
+                }
+                
+                /* var cursos = db.Curso.AsNoTracking();
                 foreach(var x in cursos)
                 {
                     Console.WriteLine($"Título: {x.Titulo} | Descrição: {x.Descripicion}");
-                }
+                } */
             }
         }
     }
